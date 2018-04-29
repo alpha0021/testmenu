@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>weird</title>
+	<meta charset="utf-8">
+	<style>
+		body{
+			margin:0 auto;
+			width:345px;
+			padding-top:100px;
+		}
+		.menu-section{
+			background-color:pink;
+		}
+	</style>
+</head>
+<body>
+	
+	<h2>Menu we have in our special dinner ....</h2>
+    <div class="menu-section">
+        <div class="menu-item">Riso Basmati With Pollo </div>
+        <div class="menu-item">Khichuri with egg fry</div>
+        <div class="menu-item">Fish fry with  polao</div>
+        <div class="menu-item">Egg fry with khichuri</div>
+        <div class="menu-item">Vegetable fry with khichuri</div>
+    </div>
+    <a href="#" class="load-more">Show more menu</a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var menus = ["menu2.html", "menu3.html", "menu4.html"];
+            var nextMenu = 0;
+            
+            $('.load-more').on('click', function (e) {
+               e.preventDefault();
+
+               $.get(menus[nextMenu], function (data) {
+                    $('.menu-section').append(data);
+                    nextMenu = nextMenu+1;
+               });
+            });
+        });
+    </script>
+</body>
+</html>
